@@ -11,6 +11,10 @@ jobs:
       - run: php artisan migrate --seed --env=testing --force
       - run: mkdir -p tests/_output
       - run: vendor/bin/phpunit
+      - store_test_results:
+          path: tests/_output
+      - store_artifacts:
+          path: tests/_output
 workflows:
   version: 2 
   deploy:
